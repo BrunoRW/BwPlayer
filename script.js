@@ -115,7 +115,7 @@ local_create_bplayer.onmousemove = ()=> {
 }
 
 const defineEvt = setInterval(()=> {
-    if(checkEvt(3000)){
+    if(checkEvt(3000) && video.currentTime != 0){
         out_sets.style.opacity = 0;
         local_create_bplayer.style.cursor = "none";
     } else {
