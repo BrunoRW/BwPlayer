@@ -108,7 +108,7 @@ const checkEvt = (e)=> {
     }
 }
 
-document.body.onmousemove = ()=> {
+local_create_bplayer.onmousemove = ()=> {
     if(checkEvt(200)){
         lastSetEvt();
     }
