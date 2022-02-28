@@ -42,7 +42,7 @@ const video = document.createElement('video');
 video.id = "video-bplayer";
 video.src = url;
 video.controls = 0;
-video.style.objectFit = "fill";
+video.style.objectFit = "cover";
 if(thumbanail != ""){
     video.poster = thumbanail;
 }
@@ -65,7 +65,7 @@ out_sets.append(bts_pp);
 
 const tempo_span = document.createElement('span');
 tempo_span.id = "tempo";
-tempo_span.innerText = "0:00 / 0:00";
+tempo_span.innerText = "loading";
 out_sets.append(tempo_span);
 
 // play icon
@@ -194,14 +194,24 @@ const interval = setInterval(()=>{
     if(segundosAct < 10){
         segundosAct = `0${segundosAct}`;
     }
-
+        
     let minutosMax = getTime(video.duration);
     let segundosMax = Math.floor(video.duration - minutosMax * 60);
+    
     if(segundosMax < 10){
         segundosMax = `0${segundosMax}`;
     }
+    if(minutosMax == -1){
+        var mensagem = "loading";
+        ispaused = true;
+        bts_pp.innerHTML = play_icon;
+    } else {
+        var mensagem = `${minutosAct}:${segundosAct} / ${minutosMax}:${segundosMax}`;
+    }
+    
+    
 
-    tempo.innerText = `${minutosAct}:${segundosAct} / ${minutosMax}:${segundosMax}`;
+    tempo.innerText = mensagem;
     range.value = video.currentTime;
     setMaxDuration();    
 },1000)
@@ -235,9 +245,13 @@ if(!localVolume){
     var volume = localStorage.bwplayer_vol;
 }
 
-volume_range.oninput = ()=> {
+const newVol = ()=> {
     video.volume = volume_range.value;
     localStorage.bwplayer_vol = volume_range.value;
+}
+
+volume_range.oninput = ()=> {
+    newVol();
 }
 
 volume_range.value = volume;
