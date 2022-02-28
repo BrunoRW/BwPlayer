@@ -1,4 +1,4 @@
 # Video-Player-V1
 Video player
 
-<a href="http://bwplayer.ga/" target="_blank">Demo</a>
+<a href="http://bwplayer.ga/" target="__blank">Demo</a>
