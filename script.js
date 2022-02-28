@@ -7,6 +7,7 @@ const head = document.querySelectorAll("head")[0];
 
 // local create bplayer 
 const local_create_bplayer = document.querySelectorAll(`${local_bplayer}`)[0];
+local_create_bplayer.style.position = "relative";
 
 // link style css
 const link_style = document.createElement("link");
