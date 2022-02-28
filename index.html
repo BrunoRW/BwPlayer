@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vídeo</title>
+    <style>
+        body{
+            background: rgb(27, 33, 56);
+        }
+        #player{
+            margin: 100px auto;
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 1.75;
+        }
+    </style>
 </head>
 <body>
-
+    <div id="player"></div>
     <script>
         // video default HTML
-        const url = "";
+        const url = "video1.mp4";
 
         // Player location
         // Ex: #id, .class or element
-        const local_bplayer = "";   
+        const local_bplayer = "#player";   
     </script>
     <script src="script.js"></script>
 </body>
