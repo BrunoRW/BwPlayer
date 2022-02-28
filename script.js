@@ -29,7 +29,8 @@ const video = document.createElement('video');
 video.id = "video-bplayer";
 video.src = url;
 video.controls = 0;
-if(thumbanail && thumbanail != ""){
+video.style.objectFit = "fill";
+if(thumbanail != ""){
     video.poster = thumbanail;
 }
 content_bplayer.append(video);
@@ -137,6 +138,7 @@ var ispaused = true;
 
 // pause or play
 const pause = (e)=> {
+    video.style.objectFit = "contain";
     if(ispaused == true){
         video.play();
         ispaused = false;
