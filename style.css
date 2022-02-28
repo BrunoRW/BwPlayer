@@ -37,7 +37,7 @@ video::-webkit-media-controls {
 }
 #tempo{
     color: white;
-    width: 120px;
+    width: 145px;
     display: flex;
     justify-content: space-evenly;
     text-align: center;
