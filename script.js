@@ -128,7 +128,7 @@ const defineEvt = setInterval(()=> {
         local_create_bplayer.style.cursor = "default";
     }
 },100)
-
+ 
 
 // pause instance
 var ispaused = true;
