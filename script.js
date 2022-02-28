@@ -178,13 +178,7 @@ const viewFull = ()=> {
             local_create_bplayer.requestFullscreen();
             fullscreen = true;
         } else {
-            if(document.exitFullscreen) {
-                document.exitFullscreen();
-              } else if (document.webkitExitFullscreen) { /* Safari */
-                document.webkitExitFullscreen();
-              } else if (document.msExitFullscreen) { /* IE11 */
-                document.msExitFullscreen();
-              }
+            document.exitFullscreen();
             fullscreen = false;
         }
         arr = [];
