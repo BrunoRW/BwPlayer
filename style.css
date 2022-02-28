@@ -45,7 +45,7 @@ video::-webkit-media-controls {
     font-family: 'Karla',sans-serif;
 }
 
-.icon{
+.icon-player{
     fill: white;
     width: 30px;
     margin: 0 10px;
