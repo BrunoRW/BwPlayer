@@ -16,12 +16,6 @@ link_style.href = "style.css";
 head.append(link_style);
 
 
-// container all 
-const content = document.createElement('div');
-content.id = "content";
-content.onclick = ()=> {pause()};
-local_create_bplayer.append(content);
-
 // container player
 const content_bplayer = document.createElement('div');
 content_bplayer.id = "content-bplayer";
@@ -52,6 +46,7 @@ out_sets.append(bts_pp);
 
 const tempo_span = document.createElement('span');
 tempo_span.id = "tempo";
+tempo_span.innerText = "0:00 / 0:00";
 out_sets.append(tempo_span);
 
 // play icon
@@ -128,7 +123,7 @@ const defineEvt = setInterval(()=> {
         local_create_bplayer.style.cursor = "default";
     }
 },100)
- 
+
 
 // pause instance
 var ispaused = true;
@@ -154,13 +149,37 @@ range.onchange = ()=> {
     video.currentTime = range.value;
 }
 
+const getTime = (y)=> {
+    let nums = 0;
+    for (let i = 0; i <= y; i++){ 
+        if (i % 60 === 0){
+            nums++;
+        }
+    };
+    return nums - 1;
+}
+
 const interval = setInterval(()=>{
     if(range.value >= video.currentTime && range.value != 0 && ispaused == false){
         loadingc.style.display = "block";
     } else {
         loadingc.style.display = "none";
     }
-    tempo.innerText = `${Math.floor(video.currentTime / 60 * 100) / 100} / ${Math.floor(video.duration / 60 * 100) / 100}`;
+
+    
+    let minutosAct = getTime(video.currentTime);
+    let segundosAct = Math.floor(video.currentTime - minutosAct * 60);
+    if(segundosAct < 10){
+        segundosAct = `0${segundosAct}`;
+    }
+
+    let minutosMax = getTime(video.duration);
+    let segundosMax = Math.floor(video.duration - minutosMax * 60);
+    if(segundosMax < 10){
+        segundosMax = `0${segundosMax}`;
+    }
+
+    tempo.innerText = `${minutosAct}:${segundosAct} / ${minutosMax}:${segundosMax}`;
     range.value = video.currentTime;
     setMaxDuration();    
 },1000)
