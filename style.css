@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@200&display=swap');
 
-*{
-    padding: 0;
-    margin: 0;
-    outline: none;
-    text-decoration: none;
-    font-family: 'Karla',sans-serif;
-    border: none;
-}
 video::-webkit-media-controls {
     display:none !important;
 }
@@ -51,6 +43,7 @@ video::-webkit-media-controls {
     justify-content: space-evenly;
     text-align: center;
     font-weight: bolder;
+    font-family: 'Karla',sans-serif;
 }
 
 .icon{
