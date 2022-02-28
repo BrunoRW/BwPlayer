@@ -29,6 +29,9 @@ const video = document.createElement('video');
 video.id = "video-bplayer";
 video.src = url;
 video.controls = 0;
+if(thumbanail && thumbanail != ""){
+    video.poster = thumbanail;
+}
 content_bplayer.append(video);
 
 // out settings
