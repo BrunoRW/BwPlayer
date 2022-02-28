@@ -11,11 +11,6 @@ video::-webkit-media-controls {
     background-color: black;
     display: flex;
 }
-#video-bplayer{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-}
 
 #range-bplayer{
     height: 5px;
