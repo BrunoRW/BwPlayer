@@ -11,42 +11,46 @@
 
     <script>
         //don't remove anything
+        const playerVersion = "1.0";
+
         var url;
-        var sizePlayer;
+        var playerSize;
         var playerColor;
         var local_bplayer;
         var thumbnail;
         var counterStyle;
         var download;
-        
-        // video location, default HTML
-        url = "https://bwplayer.ga/video1.mp4";
-        
-        // Size player
+
+        // Video location, default HTML
+        url = "//bwplayer.ga/video1.mp4";
+
+        // Player size
         // 0 - your own custom player
         // 1 - default config player - width: 100%; aspect-ratio: 1.78; max-width: 1000px;
-        // use 1 if you don't have css in your player container
-        sizePlayer = 1;
-        
-        //Player color, leave it empty to keep the default one.
+        // Use 1 if you don't have css in your player container
+        playerSize = 1;
+
+        // Player color, leave it empty to keep the default one.
         // Hexa color - #fff or solid color - blue
         playerColor = "";
-        
+
         // Player location
         // Ex: #id, .class or element
         // Please set your container with position relative
         local_bplayer = ".player";
-        
+
         // Video thumbnail
-        // if you don't have a thumbnail, leave it empty to keep the default one.
+        // If you don't have a thumbnail, leave it empty to keep the default one.
         thumbnail = "";
-        
-        //style of counter - 0 or 1
+
+        // Style of counter - 0 or 1
         counterStyle = 0;
-        
-        //download video - true or false
+
+        // Download video - true or false
         download = true;
     </script>
+
+    <script src="//bwplayer.ga/api/script.js"></script>
     
     <script src="//bwplayer.ga/api/script.js"></script>
 </body>
