@@ -206,11 +206,13 @@ const setMaxDuration = ()=>{
 const colorRange = ()=> {
     let valueVid = (100 * video.currentTime) / video.duration;
     range.style = `--value: ${valueVid}%`;
+    if(valueVid >= 100 && ispaused == false){
+        pause();
+    }
 }
 range.onmousedown = ()=> {
     setTimeout(()=> {
         colorRange();
-        console.log("Down");
     },10)
 }
 range.oninput = ()=> {
