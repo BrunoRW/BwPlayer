@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@200&display=swap');
 
+input[type=range]::-webkit-slider-runnable-track{
+    background-image:linear-gradient(to right, var(--colorPlayer) var(--value,0),transparent var(--value,0));
+    height:5px;
+}
+
 video::-webkit-media-controls {
     display:none !important;
 }
@@ -16,13 +21,24 @@ video::-webkit-media-controls {
     height: 100%;
     position: absolute;
 }
-#range-bplayer{
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    aspect-ratio: 1;
+    border-radius: 50%; 
+    background: var(--colorPlayer);
+    transform: translateY(-5px);
+}
+input[type=range]{
+    -webkit-appearance: none;
+    appearance: none;
     height: 5px;
     width: 100%;
+    border-radius: 20px;
 }
 #vol-range{
-    width: 100px;
-    height: 5px;
+    max-width: 100px;
     margin: 0 10px;
 }
 #out-sets{
@@ -43,11 +59,23 @@ video::-webkit-media-controls {
     text-align: center;
     font-weight: bolder;
     font-family: 'Karla',sans-serif;
+    margin: 0 5px;
 }
 
 .icon-player{
     fill: white;
     width: 30px;
+    margin: 0 10px;
+}
+#bts-pp{
+    display: flex;
+}
+.path-ico{
+    fill: #fff;
+    stroke: #fff;
+}
+.svg-icon {
+    width: 25px;
     margin: 0 10px;
 }
 
