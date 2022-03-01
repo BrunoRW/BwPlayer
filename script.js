@@ -236,7 +236,7 @@ const counterStyle0 = ()=> {
         ispaused = true;
         bts_pp.innerHTML = play_icon;
     } else {
-        var msgCounter = `- ${total2}:${total3}`;
+        var msgCounter = `${total2}:${total3}`;
     }
     
     return msgCounter;
