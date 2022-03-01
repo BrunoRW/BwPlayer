@@ -133,10 +133,10 @@ input[type=range]{
     align-items: center;
     justify-content: center;
 }
-#errorBox{
-    background: #454e6c;
+#errorBox {
+    background: #ededed;
     text-align: center;
-    color: #cdcdcd;
+    color: #070707;
     width: 100%;
     max-width: 198px;
     margin: 5px;
