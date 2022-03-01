@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@200&display=swap');
 
+*{
+    outline: none;
+}
 input[type=range]::-webkit-slider-runnable-track{
     background-image:linear-gradient(to right, var(--colorPlayer) var(--value,0),transparent var(--value,0));
     height:5px;
@@ -41,16 +44,19 @@ input[type=range]{
 #vol-range{
     max-width: 100px;
     margin: 0 10px;
+    width: 20%;
+    min-width: 20px;
 }
 #out-sets{
     display: flex;
     position: absolute;
     bottom: 0;
     z-index: 1;
-    width: calc(100% - 20px);
-    margin: 10px;
+    width: 100%;
+    padding: 10px 0 5px;
     align-items: center;
     transition: all .3s;
+    background: linear-gradient(360deg, #0000001c, transparent);
 }
 #tempo{
     color: white;
@@ -66,7 +72,7 @@ input[type=range]{
 .icon-player{
     fill: white;
     width: 30px;
-    margin: 0 10px;
+    margin: 0 0 0 10px;
 }
 #bts-pp{
     display: flex;
