@@ -78,6 +78,10 @@ const bts_dw = document.createElement('div');
 bts_dw.id = "bts-dw";
 out_sets.append(bts_dw);
 
+const bts_pip = document.createElement('div');
+bts_pip.id = "bts-pip";
+out_sets.append(bts_pip);
+
 const tempo_span = document.createElement('span');
 tempo_span.id = "tempo";
 tempo_span.innerText = "loading";
@@ -109,6 +113,7 @@ const range = document.createElement('input');
 range.type = "range";
 range.id = "range-bplayer";
 range.value = 0;
+range.step = "0.01";
 out_sets.append(range);
 
 
