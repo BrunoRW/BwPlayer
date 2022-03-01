@@ -30,7 +30,7 @@ if(playerVersion != correctVersion){
         <div id="msgError">
             <div id="errorBox">
                 Atualize o player<br>
-                <span id="spanError">Versão: ${correctVersion}</span>
+                <span id="spanError">Versão ${correctVersion} necessária</span>
             </div>
         </div>
     `;
