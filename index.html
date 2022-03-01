@@ -1,55 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt.br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vídeo</title>
-    <style>
-        body{
-            background: rgb(27, 33, 56);
-        }
-        #player{
-            margin: 100px auto;
-            width: 100%;
-            max-width: 800px;
-            aspect-ratio: 1.78;
-        }
-    </style>
+    <title>Document</title>
 </head>
 <body>
-    <div id="player"></div>
+    <div class="player"></div>
+
     <script>
         //don't remove anything
         var url;
+        var sizePlayer;
         var playerColor;
         var local_bplayer;
         var thumbnail;
         var counterStyle;
         var download;
-
+        
         // video location, default HTML
         url = "https://bwplayer.ga/video1.mp4";
-
+        
+        // Size player
+        // 0 - your own custom player
+        // 1 - default config player - width: 100%; aspect-ratio: 1.78; max-width: 1000px;
+        // use 1 if you don't have css in your player container
+        sizePlayer = 1;
+        
         //Player color, leave it empty to keep the default one.
         // Hexa color - #fff or solid color - blue
         playerColor = "";
-
+        
         // Player location
         // Ex: #id, .class or element
         // Please set your container with position relative
-        local_bplayer = "#player";
-
+        local_bplayer = ".player";
+        
         // Video thumbnail
         // if you don't have a thumbnail, leave it empty to keep the default one.
         thumbnail = "";
-
+        
         //style of counter - 0 or 1
         counterStyle = 0;
-
+        
         //download video - true or false
         download = true;
     </script>
-
+    
     <script src="//bwplayer.ga/api/script.js"></script>
 </body>
 </html>
