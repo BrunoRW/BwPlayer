@@ -50,6 +50,7 @@ video.id = "video-bplayer";
 video.src = url;
 video.controls = 0;
 video.style.objectFit = "cover";
+video.preload = "auto";
 if(thumbnail != ""){
     video.poster = thumbnail;
 }
