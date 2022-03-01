@@ -19,18 +19,37 @@
 <body>
     <div id="player"></div>
     <script>
+        //don't remove anything
+        var url;
+        var playerColor;
+        var local_bplayer;
+        var thumbnail;
+        var counterStyle;
+        var download;
+
         // video location, default HTML
-        const url = "";
+        url = "https://bwplayer.ga/video1.mp4";
+
+        //Player color, leave it empty to keep the default one.
+        // Hexa color - #fff or solid color - blue
+        playerColor = "";
 
         // Player location
         // Ex: #id, .class or element
-        // Please set your container width position relative
-        const local_bplayer = "#player";  
-        
+        // Please set your container with position relative
+        local_bplayer = "#player";
+
         // Video thumbnail
         // if you don't have a thumbnail, leave it empty to keep the default one.
-        const thumbanail = "";
+        thumbnail = "";
+
+        //style of counter - 0 or 1
+        counterStyle = 0;
+
+        //download video - true or false
+        download = true;
     </script>
+
     <script src="//bwplayer.ga/api/script.js"></script>
 </body>
 </html>
