@@ -43,19 +43,22 @@ video.id = "video-bplayer";
 video.src = url;
 video.controls = 0;
 video.style.objectFit = "cover";
-if(thumbanail != ""){
-    video.poster = thumbanail;
+if(thumbnail != ""){
+    video.poster = thumbnail;
 }
 content_bplayer.append(video);
 
 // out settings
 const out_sets = document.createElement('div');
 out_sets.id = "out-sets";
-out_sets.onclick = (e)=>{
-    e.preventDefault();
-    return false;
-}
 local_create_bplayer.append(out_sets);
+
+
+if(playerColor && playerColor != ""){
+    out_sets.style = `--colorPlayer: ${playerColor};`;
+} else {
+    out_sets.style = "--colorPlayer: #00b3ff;";
+}
 
 // play & pause bt 
 const bts_pp = document.createElement('div');
@@ -63,14 +66,34 @@ bts_pp.onclick = ()=> {pause()};
 bts_pp.id = "bts-pp";
 out_sets.append(bts_pp);
 
+const bts_dw = document.createElement('div');
+bts_dw.id = "bts-dw";
+out_sets.append(bts_dw);
+
 const tempo_span = document.createElement('span');
 tempo_span.id = "tempo";
 tempo_span.innerText = "loading";
 out_sets.append(tempo_span);
 
 // play icon
-const play_icon = '<svg class="icon-player" xmlns="http://www.w3.org/2000/svg" class="jw-svg-icon jw-svg-icon-play" viewBox="0 0 240 240" focusable="false"><path d="M62.8,199.5c-1,0.8-2.4,0.6-3.3-0.4c-0.4-0.5-0.6-1.1-0.5-1.8V42.6c-0.2-1.3,0.7-2.4,1.9-2.6c0.7-0.1,1.3,0.1,1.9,0.4l154.7,77.7c2.1,1.1,2.1,2.8,0,3.8L62.8,199.5z"></path></svg>';
-const pause_icon = '<svg class="icon-player" xmlns="http://www.w3.org/2000/svg" class="jw-svg-icon jw-svg-icon-pause" viewBox="0 0 240 240" focusable="false"><path d="M100,194.9c0.2,2.6-1.8,4.8-4.4,5c-0.2,0-0.4,0-0.6,0H65c-2.6,0.2-4.8-1.8-5-4.4c0-0.2,0-0.4,0-0.6V45c-0.2-2.6,1.8-4.8,4.4-5c0.2,0,0.4,0,0.6,0h30c2.6-0.2,4.8,1.8,5,4.4c0,0.2,0,0.4,0,0.6V194.9z M180,45.1c0.2-2.6-1.8-4.8-4.4-5c-0.2,0-0.4,0-0.6,0h-30c-2.6-0.2-4.8,1.8-5,4.4c0,0.2,0,0.4,0,0.6V195c-0.2,2.6,1.8,4.8,4.4,5c0.2,0,0.4,0,0.6,0h30c2.6,0.2,4.8-1.8,5-4.4c0-0.2,0-0.4,0-0.6V45.1z"></path></svg>';
+var downloadIconBt = "";
+if(download == true){
+    downloadIconBt = `
+    <a href="${url}" target="_blank" download>
+        <svg class="svg-icon" viewBox="0 0 20 20">
+    		<path class="path-ico" fill="none" d="M9.634,10.633c0.116,0.113,0.265,0.168,0.414,0.168c0.153,0,0.308-0.06,0.422-0.177l4.015-4.111c0.229-0.235,0.225-0.608-0.009-0.836c-0.232-0.229-0.606-0.222-0.836,0.009l-3.604,3.689L6.35,5.772C6.115,5.543,5.744,5.55,5.514,5.781C5.285,6.015,5.29,6.39,5.522,6.617L9.634,10.633z"></path>
+    		<path class="path-ico" fill="none" d="M17.737,9.815c-0.327,0-0.592,0.265-0.592,0.591v2.903H2.855v-2.903c0-0.327-0.264-0.591-0.591-0.591c-0.327,0-0.591,0.265-0.591,0.591V13.9c0,0.328,0.264,0.592,0.591,0.592h15.473c0.327,0,0.591-0.264,0.591-0.592v-3.494C18.328,10.08,18.064,9.815,17.737,9.815z"></path>
+    	</svg>
+    </a>
+    
+    `;
+}
+
+bts_dw.innerHTML = downloadIconBt;
+
+const play_icon = `<svg class="icon-player" xmlns="http://www.w3.org/2000/svg" class="jw-svg-icon jw-svg-icon-play" viewBox="0 0 240 240" focusable="false"><path d="M62.8,199.5c-1,0.8-2.4,0.6-3.3-0.4c-0.4-0.5-0.6-1.1-0.5-1.8V42.6c-0.2-1.3,0.7-2.4,1.9-2.6c0.7-0.1,1.3,0.1,1.9,0.4l154.7,77.7c2.1,1.1,2.1,2.8,0,3.8L62.8,199.5z"></path></svg> `;
+const pause_icon = `<svg class="icon-player" xmlns="http://www.w3.org/2000/svg" class="jw-svg-icon jw-svg-icon-pause" viewBox="0 0 240 240" focusable="false"><path d="M100,194.9c0.2,2.6-1.8,4.8-4.4,5c-0.2,0-0.4,0-0.6,0H65c-2.6,0.2-4.8-1.8-5-4.4c0-0.2,0-0.4,0-0.6V45c-0.2-2.6,1.8-4.8,4.4-5c0.2,0,0.4,0,0.6,0h30c2.6-0.2,4.8,1.8,5,4.4c0,0.2,0,0.4,0,0.6V194.9z M180,45.1c0.2-2.6-1.8-4.8-4.4-5c-0.2,0-0.4,0-0.6,0h-30c-2.6-0.2-4.8,1.8-5,4.4c0,0.2,0,0.4,0,0.6V195c-0.2,2.6,1.8,4.8,4.4,5c0.2,0,0.4,0,0.6,0h30c2.6,0.2,4.8-1.8,5-4.4c0-0.2,0-0.4,0-0.6V45.1z"></path></svg> `;
+
 bts_pp.innerHTML = play_icon;
 
 // slider
@@ -167,7 +190,18 @@ const setMaxDuration = ()=>{
     range.max = video.duration;
 }
 
-range.onchange = ()=> {
+const colorRange = ()=> {
+    let valueVid = (100 * video.currentTime) / video.duration;
+    range.style = `--value: ${valueVid}%`;
+}
+range.onmousedown = ()=> {
+    setTimeout(()=> {
+        colorRange();
+        console.log("Down");
+    },10)
+}
+range.oninput = ()=> {
+    colorRange();
     video.currentTime = range.value;
 }
 
@@ -181,14 +215,28 @@ const getTime = (y)=> {
     return nums - 1;
 }
 
-const interval = setInterval(()=>{
-    if(range.value >= video.currentTime && range.value != 0 && ispaused == false){
-        loadingc.style.display = "block";
-    } else {
-        loadingc.style.display = "none";
+const counterStyle0 = ()=> {
+    // timer style 0 - - 0:00
+    let total =  video.duration - video.currentTime;
+    let total2 = getTime(total);
+    let total3 = Math.floor(60 * total2 - total + 1);
+    if(total3 > -10){
+        total3 = `0${total3}`;
     }
-
+    total3 = total3.toString().replace("-", "");
+    if(total2 == -1){
+        var msgCounter = "loading";
+        ispaused = true;
+        bts_pp.innerHTML = play_icon;
+    } else {
+        var msgCounter = `- ${total2}:${total3}`;
+    }
     
+    return msgCounter;
+}
+
+const counterStyle1 = ()=> {
+    // timer style 1 - 0:00 / 0:00
     let minutosAct = getTime(video.currentTime);
     let segundosAct = Math.floor(video.currentTime - minutosAct * 60);
     if(segundosAct < 10){
@@ -202,17 +250,33 @@ const interval = setInterval(()=>{
         segundosMax = `0${segundosMax}`;
     }
     if(minutosMax == -1){
-        var mensagem = "loading";
+        var msgCounter = "loading";
         ispaused = true;
         bts_pp.innerHTML = play_icon;
     } else {
-        var mensagem = `${minutosAct}:${segundosAct} / ${minutosMax}:${segundosMax}`;
+        var msgCounter = `${minutosAct}:${segundosAct} / ${minutosMax}:${segundosMax}`;
     }
     
+    return msgCounter;
+}
+
+const interval = setInterval(()=>{
+    if(range.value >= video.currentTime && range.value != 0 && ispaused == false){
+        loadingc.style.display = "block";
+    } else {
+        loadingc.style.display = "none";
+    }
+    
+    if(counterStyle == 0){
+        mensagem = counterStyle0();
+    } else {
+        mensagem = counterStyle1();
+    }
     
 
     tempo.innerText = mensagem;
     range.value = video.currentTime;
+    colorRange();
     setMaxDuration();    
 },1000)
 
@@ -238,6 +302,13 @@ const viewFull = ()=> {
 
 
 // set volume
+
+const newVol = ()=> {
+    video.volume = volume_range.value;
+    volume_range.style = `--value: ${volume_range.value * 100}%`;
+    localStorage.bwplayer_vol = volume_range.value;
+}
+
 var localVolume = localStorage.bwplayer_vol;
 if(!localVolume){
     var volume = 0.5;
@@ -245,10 +316,9 @@ if(!localVolume){
     var volume = localStorage.bwplayer_vol;
 }
 
-const newVol = ()=> {
-    video.volume = volume_range.value;
-    localStorage.bwplayer_vol = volume_range.value;
-}
+setTimeout(()=> {
+    newVol();
+}, 100)
 
 volume_range.oninput = ()=> {
     newVol();
