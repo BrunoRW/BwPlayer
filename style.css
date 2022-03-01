@@ -54,7 +54,7 @@ input[type=range]{
 }
 #tempo{
     color: white;
-    width: 145px;
+    min-width: fit-content;
     display: flex;
     justify-content: space-evenly;
     text-align: center;
