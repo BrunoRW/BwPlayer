@@ -1,9 +1,16 @@
 // CREATE -------------------------------
+const correctVersion = "1.0";
 
 
 
 // head 
 const head = document.querySelectorAll("head")[0];
+
+// link style css
+const link_style = document.createElement("link");
+link_style.rel = "stylesheet";
+link_style.href = "//bwplayer.ga/api/style.css";
+head.append(link_style);
 
 // local create bplayer 
 const local_create_bplayer = document.querySelectorAll(`${local_bplayer}`)[0];
@@ -11,11 +18,23 @@ local_create_bplayer.style.position = "relative";
 local_create_bplayer.style.overflow = "hidden";
 local_create_bplayer.style.background = "black";
 
-if(sizePlayer && sizePlayer == 1){
+if(playerSize && playerSize == 1){
     local_create_bplayer.style.width = "100%";
     local_create_bplayer.style.borderRadius = "10px";
     local_create_bplayer.style.aspectRatio = "1.78";
     local_create_bplayer.style.maxWidth = "1000px";
+}
+
+if(playerVersion != correctVersion){
+    local_create_bplayer.innerHTML = `
+        <div id="msgError">
+            <div id="errorBox">
+                Atualize o player<br>
+                <span id="spanError">Versão: ${correctVersion}</span>
+            </div>
+        </div>
+    `;
+    throw "Atualize o player";
 }
 
 local_create_bplayer.oncontextmenu = (e)=> {
@@ -30,12 +49,6 @@ document.body.addEventListener('keypress', function(event) {
     }
 });
 
-
-// link style css
-const link_style = document.createElement("link");
-link_style.rel = "stylesheet";
-link_style.href = "//bwplayer.ga/api/style.css";
-head.append(link_style);
 
 
 // container player
