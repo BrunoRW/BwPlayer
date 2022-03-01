@@ -254,8 +254,7 @@ const counterStyle0 = ()=> {
     total3 = total3.toString().replace("-", "");
     if(total2 == -1){
         var msgCounter = "loading";
-        ispaused = false;
-        video.pause();
+        ispaused = true;
         bts_pp.innerHTML = play_icon;
     } else {
         var msgCounter = `${total2}:${total3}`;
@@ -280,8 +279,7 @@ const counterStyle1 = ()=> {
     }
     if(minutosMax == -1){
         var msgCounter = "loading";
-        ispaused = false;
-        video.pause();
+        ispaused = true;
         bts_pp.innerHTML = play_icon;
     } else {
         var msgCounter = `${minutosAct}:${segundosAct} / ${minutosMax}:${segundosMax}`;
