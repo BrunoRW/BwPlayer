@@ -11,6 +11,13 @@ local_create_bplayer.style.position = "relative";
 local_create_bplayer.style.overflow = "hidden";
 local_create_bplayer.style.background = "black";
 
+if(sizePlayer && sizePlayer == 1){
+    local_create_bplayer.style.width = "100%";
+    local_create_bplayer.style.borderRadius = "10px";
+    local_create_bplayer.style.aspectRatio = "1.78";
+    local_create_bplayer.style.maxWidth = "1000px";
+}
+
 local_create_bplayer.oncontextmenu = (e)=> {
     e.preventDefault();
     return false;
