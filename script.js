@@ -7,7 +7,7 @@ const correctVersion = "1.0";
 const head = document.querySelectorAll("head")[0];
 
 // link style css
-const link_style = document.createElement("link");
+const link_style = document.createElement("link"); 
 link_style.rel = "stylesheet";
 link_style.href = "//bwplayer.ga/api/style.css";
 head.append(link_style);
