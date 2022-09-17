@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@200&display=swap');
+
+*{
+    outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track{
+    background-image:linear-gradient(to right, var(--colorPlayer) var(--value,0),transparent var(--value,0));
+    height:5px;
+    border-radius: 10px;
+}
+
+video::-webkit-media-controls {
+    display:none !important;
+}
+#vd{
+    width: 100%;
+    aspect-ratio: 1.78;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 7px 0 #acacac;
+    background: black;
+}
+#content-bplayer{
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+}
+#video-bplayer{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    aspect-ratio: 1;
+    border-radius: 50%; 
+    background: var(--colorPlayer);
+    transform: translateY(-5px);
+}
+input[type=range]{
+    -webkit-appearance: none;
+    appearance: none;
+    height: 5px;
+    width: 100%;
+    border-radius: 20px;
+}
+#vol-range{
+    max-width: 100px;
+    margin: 0 10px;
+    width: 20%;
+    min-width: 20px;
+}
+#out-sets{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    padding: 10px 0 5px;
+    align-items: center;
+    transition: all .3s;
+    background: linear-gradient(360deg, #0000001c, transparent);
+}
+#tempo{
+    color: white;
+    min-width: fit-content;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    font-weight: bolder;
+    font-family: 'Karla',sans-serif;
+    margin: 0 5px;
+}
+
+.icon-player{
+    fill: white;
+    width: 30px;
+    margin: 0 0 0 10px;
+}
+#bts-pp{
+    display: flex;
+}
+.path-ico{
+    fill: #fff;
+    stroke: #fff;
+}
+.svg-icon {
+    width: 25px;
+    margin: 0 10px;
+}
+
+
+/* LOADING  */
+
+#loading{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+  }
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+
+
+
+/*ERROR VIDEO*/
+  
+#msgError {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#errorBox {
+    background: #ededed;
+    text-align: center;
+    color: #070707;
+    width: 100%;
+    max-width: 198px;
+    margin: 5px;
+    padding: 10px 5px;
+    border-radius: 3px;
+    font-family: 'Karla',sans-serif;
+    font-weight: bolder;
+}
+#spanError{
+    font-size: 15px;
+}
+  
+  
