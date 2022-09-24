@@ -51,6 +51,15 @@ data-width="1200" // dimensões em pixels
 
 data-height="720" // dimensões em pixels
 
+---
+
+# Código JS para funcionar
+
+<script src="http://bwplayer.ga/codes/script.js"></script>
+
+
+! COLE ANTES DE FECHAR O BODY !
+
 ---- 
 
 <a href="http://bwplayer.ga/" target="_blank">BwPlayer WebSite</a> 
