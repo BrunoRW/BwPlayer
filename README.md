@@ -55,7 +55,7 @@ data-height="720" // dimensões em pixels
 
 # Código JS para funcionar
 
-<script src="http://bwplayer.ga/codes/script.js"></script>
+\<script src="http://bwplayer.ga/codes/script.js"></script>
 
 
 ! COLE ANTES DE FECHAR O BODY !
